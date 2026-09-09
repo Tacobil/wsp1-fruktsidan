@@ -5,13 +5,13 @@
 <%
 full_stars = @fruit["tastiness"]/2
 half_stars = @fruit["tastiness"] % 2
-empty_stars = 5 - full_stars - half_stars
+empty_stars = [5 - full_stars - half_stars, 0].max
 star_score = ""
+
 
 star_score += "★" * full_stars
 star_score += "⯪" * half_stars
 star_score += "☆" * empty_stars
-
 %>
 <p class="rating"><%=star_score%></p>
 <p>Smakar <%=@fruit["tastiness"]%>/10</p>
