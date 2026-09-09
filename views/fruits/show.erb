@@ -5,19 +5,14 @@
 <%
 full_stars = @fruit["tastiness"]/2
 half_stars = @fruit["tastiness"] % 2
-%>
+empty_stars = 5 - full_stars - half_stars
+star_score = ""
 
-<p class="rating">
-<% 5.times do |i| %>
-    <% if i < full_stars %>
-        ★
-    <% elsif i < full_stars + half_stars %>
-        ⯪
-    <% else %>
-        ☆
-    <% end %>
-<% end %>
-</p>
-<%#
-<p>Smakar <%=@fruit["tastiness"]>/10</p>
-★★★⯪☆%>
+star_score += "★" * full_stars
+star_score += "⯪" * half_stars
+star_score += "☆" * empty_stars
+
+%>
+<p class="rating"><%=star_score%></p>
+<p>Smakar <%=@fruit["tastiness"]%>/10</p>
+<%#★★★⯪☆%>
