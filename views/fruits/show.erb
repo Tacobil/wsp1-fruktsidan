@@ -1,3 +1,23 @@
-<h2>Mer information om vald frukt</h2>
+<h2>Mer information om <%=@fruit["name"] %></h2>
+<p>"<%=@fruit["description"] %>"</p>
 
-<code>TODO: Visa all info som finns i databasen om aktuell frukt</code>
+
+<%
+full_stars = @fruit["tastiness"]/2
+half_stars = @fruit["tastiness"] % 2
+%>
+
+<p class="rating">
+<% 5.times do |i| %>
+    <% if i < full_stars %>
+        ★
+    <% elsif i < full_stars + half_stars %>
+        ⯪
+    <% else %>
+        ☆
+    <% end %>
+<% end %>
+</p>
+<%#
+<p>Smakar <%=@fruit["tastiness"]>/10</p>
+★★★⯪☆%>
